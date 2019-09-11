@@ -29,6 +29,8 @@ imagenController.update = async (req, res) => {
 }
 
 imagenController.create = async (req, res) => {
+    console.log(req.body);
+    console.log(req.file);
     const imagen = new Imagen({
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
