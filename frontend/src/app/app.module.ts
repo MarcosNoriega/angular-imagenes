@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { PhotosComponent } from './components/photos/photos.component';
 import { UploadPhotoComponent } from './components/upload-photo/upload-photo.component';
+import { UpdatePhotoComponent } from './components/update-photo/update-photo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     PhotosComponent,
-    UploadPhotoComponent
+    UploadPhotoComponent,
+    UpdatePhotoComponent
   ],
   imports: [
     BrowserModule,

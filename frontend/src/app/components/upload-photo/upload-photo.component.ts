@@ -15,6 +15,8 @@ export class UploadPhotoComponent implements OnInit {
     imagen: null
   };
 
+  ok = false;
+
   photoSelected: ArrayBuffer | string;
 
   constructor(private photoService: PhotosService) { }
@@ -24,8 +26,10 @@ export class UploadPhotoComponent implements OnInit {
 
   uploadPhoto(event) {
     this.photoService.uploadPhotos(this.photo).subscribe(res => {
-      console.log(res);
+      this.ok = true;
     });
+
+    this.clearForm();
   }
 
   onChange(event) {
@@ -38,6 +42,16 @@ export class UploadPhotoComponent implements OnInit {
       reader.onload = e => this.photoSelected = reader.result;
       reader.readAsDataURL(this.photo.imagen);
     }
+  }
+
+  clearForm() {
+    this.photo = {
+      nombre: null,
+      descripcion: null,
+      imagen: null
+    };
+
+    this.photoSelected = null;
   }
 
 }

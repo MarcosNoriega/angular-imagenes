@@ -22,4 +22,16 @@ export class PhotosService {
     fd.append('imagen', photo.imagen);
     return this.http.post(this.url + '/create', fd);
   }
+
+  deletePhoto(id: string) {
+    return this.http.delete(this.url + `/delete/${id}`);
+  }
+
+  showPhoto(id: string) {
+    return this.http.get(this.url + `/show/${id}`);
+  }
+
+  updatePhotos(id: string, photo: any) {
+    return this.http.put(this.url + `/update/${id}`, photo);
+  }
 }

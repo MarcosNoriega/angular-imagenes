@@ -1,9 +1,28 @@
-<div class="container">
+<div class="container mt-4">
     <h1 *ngIf="photos.length == 0" class="display-4 text-center aviso">No tienes ninguna imagen subida</h1>
     <div class="row">
         <div class="col">
             <div class="card-columns">
-                
+                <div class="card" *ngFor="let photo of photos">
+                    <img [src]="photo.ruta" class="card-img-top" alt="">
+
+                    <div class="card-body">
+                        <h3>{{photo.nombre}}</h3>
+
+                        <p>{{photo.descripcion}}</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="row justify-content-end">
+                            <div class="col-md-2">
+                                <button (click)="updatePhoto(photo._id)" class="btn btn-dark"><i class="fa fa-edit"></i></button>
+                            </div>
+                            <div class="col-md-2">
+                                <button (click)="deletePhoto(photo._id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
