@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { PhotosComponent } from './components/photos/photos.component';
 import { UploadPhotoComponent } from './components/upload-photo/upload-photo.component';
 import { UpdatePhotoComponent } from './components/update-photo/update-photo.component';
+import { ResultadosComponent } from './components/resultados/resultados.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UpdatePhotoComponent } from './components/update-photo/update-photo.com
     NavbarComponent,
     PhotosComponent,
     UploadPhotoComponent,
-    UpdatePhotoComponent
+    UpdatePhotoComponent,
+    ResultadosComponent
   ],
   imports: [
     BrowserModule,

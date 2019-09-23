@@ -34,4 +34,8 @@ export class PhotosService {
   updatePhotos(id: string, photo: any) {
     return this.http.put(this.url + `/update/${id}`, photo);
   }
+
+  findPhotos(termino: string) {
+    return this.http.get(this.url + `/find/${termino}`);
+  }
 }

@@ -22,9 +22,11 @@ export class PhotosComponent implements OnInit {
    }
 
   deletePhoto(id: string) {
-    this.photosService.deletePhoto(id).subscribe((res: any) => {
-      this.photos = this.photos.filter(photo => photo._id !== res._id);
-    });
+    if (confirm('Estas serguro de eliminar esta foto')) {
+      this.photosService.deletePhoto(id).subscribe((res: any) => {
+        this.photos = this.photos.filter(photo => photo._id !== res._id);
+      });
+    }
   }
 
   updatePhoto(id: string) {

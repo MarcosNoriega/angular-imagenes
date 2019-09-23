@@ -29,8 +29,6 @@ imagenController.update = async (req, res) => {
 }
 
 imagenController.create = async (req, res) => {
-    console.log(req.body);
-    console.log(req.file);
     const imagen = new Imagen({
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
@@ -39,6 +37,18 @@ imagenController.create = async (req, res) => {
     await imagen.save();
 
     res.json({mensaje: 'ok'})
+}
+
+imagenController.find = async (req, res) => {
+    const {termino} = req.params;
+    const imagenes = [];
+    const filtrarNombre = await Imagen.find({nombre: { $regex: '.*' + termino + '.*' }});
+    const filtrarDescripcion = await Imagen.find({descripcion: { $regex: '.*' + termino + '.*' }});
+
+    imagenes.push(...filtrarNombre);
+    imagenes.push(...filtrarDescripcion);
+
+    res.json(imagenes);
 }
 
 
